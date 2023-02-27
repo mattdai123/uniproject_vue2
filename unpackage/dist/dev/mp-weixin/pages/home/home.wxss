@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* 水平间距 */
 /* 水平间距 */
+.fatherbox {
+  font-size: 0px;
+}
 swiper {
   height: 330rpx;
 }
@@ -31,5 +34,11 @@ swiper image {
 .floor-img-box {
   display: flex;
   padding-left: 10rpx;
+}
+.search-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 99999;
 }
 

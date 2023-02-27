@@ -10,14 +10,15 @@
       "root": "subpkg",
       "pages": [
         "goods_detail/goods_detail",
-        "goods_list/goods_list"
+        "goods_list/goods_list",
+        "search/search"
       ]
     }
   ],
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "优选app",
-    "navigationBarBackgroundColor": "#2f4f6f",
+    "navigationBarBackgroundColor": "#c00000",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {

@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-search @click="gotoSearch"></my-search>
 		<view class="scroll-view-box">
 			<!--左侧滑动区域-->
 			<scroll-view class="left-scroll" scroll-y="true" :style="{height:wh+'px'}">
@@ -41,7 +42,7 @@
 		},
 		onLoad(){
 			const res=uni.getSystemInfoSync()
-			this.wh=res.windowHeight,
+			this.wh=res.windowHeight-50,
 			this.getcatelist()		
 		},
 		methods:{
@@ -69,7 +70,12 @@
 			uni.navigateTo({
 			    url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
 			  })
-		}
+		},
+		 gotoSearch() {
+		     uni.navigateTo({
+		       url: '/subpkg/search/search'
+		     })
+		   }
 	}
 }
 </script>

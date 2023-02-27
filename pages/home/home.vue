@@ -1,5 +1,9 @@
 <template>
-	<view>
+	<view class="fatherbox">
+		<!-- 使用自定义的搜索组件 -->
+		<view class="search-box">
+		  <my-search @click="gotoSearch"></my-search>
+		</view>	
 		<!--轮播图区域-->
 		<swiper :indicator-dots="true" autoplay="true" :interval="2000" :duration="1000" :circular="true">
 			<swiper-item v-for="(item,index) in swiperList" :key="index">
@@ -7,15 +11,13 @@
 					<image :src="item.image_src"></image>
 				</navigator>
 			</swiper-item>
-		</swiper>
-		
+		</swiper>	
 		<!--导航图区域-->
 		<view class="navlist"> 
 			<view class="navlist-item" v-for="(item,index) in navlist" :key="index" @click="navClickHandler(item)">
 				<image :src="item.image_src" class="nav-image"></image>			
 			</view>
-		</view>
-		
+		</view>		
 		<!--楼层区域-->
 		<view class="floor-list">
 		  <!-- 楼层 item 项 -->
@@ -101,12 +103,20 @@
 			      url: '/pages/cate/cate'
 			    })
 			  }
-			}
+			}, 
+			gotoSearch() {
+		     uni.navigateTo({
+		       url: '/subpkg/search/search'
+		     })
+		   }
 		}
 	}
 </script>
 
 <style lang="scss">
+.fatherbox{
+	font-size: 0px;
+}
 swiper{
 	height: 330rpx;
 	
@@ -139,5 +149,11 @@ swiper{
 .floor-img-box{
 	display: flex;
 	padding-left:10rpx;
+}
+.search-box{
+	position: sticky;
+	top: 0px;
+	z-index: 99999;
+	
 }
 </style>
