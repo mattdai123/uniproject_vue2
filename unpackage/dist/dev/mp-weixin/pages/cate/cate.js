@@ -125,29 +125,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l1 = _vm.__map(_vm.catelistlv2, function (item2, index2) {
-    var $orig = _vm.__get_orig(item2)
-    var l0 = _vm.__map(item2.children, function (item3, index3) {
-      var $orig = _vm.__get_orig(item3)
-      var g0 = item3.cat_icon.replace("dev", "web")
-      return {
-        $orig: $orig,
-        g0: g0,
-      }
-    })
-    return {
-      $orig: $orig,
-      l0: l0,
-    }
-  })
-  _vm.$mp.data = Object.assign(
-    {},
-    {
-      $root: {
-        l1: l1,
-      },
-    }
-  )
 }
 var recyclableRender = false
 var staticRenderFns = []

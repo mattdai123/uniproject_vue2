@@ -18,7 +18,7 @@
 					<view class="catelv3-list">
 					      <!-- 三级分类 Item 项 -->
 						  <view class="catelv3-item" v-for="(item3,index3) in item2.children" :key="index3" @click="gotoGoodsList(item3)">
-							  <image :src="item3.cat_icon.replace('dev','web')"></image>
+							  <image :src="item3.cat_icon"></image>
 							  <text>{{item3.cat_name}}</text>
 						  </view>
 					</view>

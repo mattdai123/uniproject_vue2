@@ -10129,7 +10129,14 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 /* 94 */,
 /* 95 */,
 /* 96 */,
-/* 97 */
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */
 /*!**************************************************************************************************************!*\
   !*** D:/HBuilderProjects/uniproject_vue2/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \**************************************************************************************************************/
@@ -10144,9 +10151,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 98));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 99));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 100));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 105));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 106));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 107));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10155,7 +10162,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 98 */
+/* 105 */
 /*!*************************************************************************************************************!*\
   !*** D:/HBuilderProjects/uniproject_vue2/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \*************************************************************************************************************/
@@ -10165,7 +10172,7 @@ exports.default = _default;
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
 
 /***/ }),
-/* 99 */
+/* 106 */
 /*!******************************************************************************************************************!*\
   !*** D:/HBuilderProjects/uniproject_vue2/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \******************************************************************************************************************/
@@ -10175,7 +10182,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
 
 /***/ }),
-/* 100 */
+/* 107 */
 /*!******************************************************************************************************************!*\
   !*** D:/HBuilderProjects/uniproject_vue2/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
   \******************************************************************************************************************/
@@ -10185,14 +10192,14 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */
 /*!***********************************************************************************************!*\
   !*** D:/HBuilderProjects/uniproject_vue2/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***********************************************************************************************/

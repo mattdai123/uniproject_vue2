@@ -21,7 +21,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 // @ts-ignore
 wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 uni.$http = _requestMiniprogram.$http;
-_requestMiniprogram.$http.baseUrl = 'https://www.uinav.com';
+_requestMiniprogram.$http.baseUrl = 'https://api-hmugo-web.itheima.net';
 
 //请求拦截器
 _requestMiniprogram.$http.beforeRequest = function (options) {
@@ -122,18 +122,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _default = {
-  onLaunch: function onLaunch() {
-    console.warn('当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！');
-    console.log('App Launch');
-  },
-  onShow: function onShow() {
-    console.log('App Show');
-  },
-  onHide: function onHide() {
-    console.log('App Hide');
-  }
-};
+var _default = {};
 exports.default = _default;
 
 /***/ }),
