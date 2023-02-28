@@ -46,7 +46,7 @@
 			    this.goodlist = [...this.goodlist, ...res.message.goods]
 			    this.total = res.message.total
 				this.isloading = false
-				cb&cb()
+				cb&&cb()
 			  },
 			  gotodetail(item) {
 			    uni.navigateTo({
