@@ -167,6 +167,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 40));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 42));
+var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 152));
 //
 //
 //
@@ -213,6 +214,7 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 var _default = {
+  mixins: [_tabbarBadge.default],
   data: function data() {
     return {
       swiperList: [],

@@ -135,10 +135,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 152));
 //
 //
 //
@@ -146,6 +148,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  mixins: [_tabbarBadge.default],
   data: function data() {
     return {};
   }

@@ -39,7 +39,28 @@
 </template>
 
 <script>
+	import {mapState,mapMutations,mapGetters} from 'vuex'
 	export default {
+		computed:{
+			// 调用 mapState 方法，把 m_cart 模块中的 cart 数组映射到当前页面中，作为计算属性来使用
+			// ...mapState('模块的名称', ['要映射的数据名称1', '要映射的数据名称2'])
+			...mapState('m_cart',[]),
+			...mapGetters('m_cart',['total'])
+		},
+		watch:{
+			 total: {
+			      // handler 属性用来定义侦听器的 function 处理函数
+			      handler(newVal) {
+					  //找到res对象，是text为购物车的对象然后对其info复制
+			         const findResult = this.options.find(x => x.text === '购物车')
+			         if (findResult) {
+			            findResult.info = newVal
+			         }
+			      },
+			      // immediate 属性用来声明此侦听器，是否在页面初次加载完毕后立即调用
+			      immediate: true
+			   }
+		},
 		data() {
 			return {
 				goodsdetail:{},
@@ -50,7 +71,7 @@
 				}, {
 				    icon: 'cart',
 				    text: '购物车',
-				    info: 2
+				    info: 0
 				}],
 				// 右侧按钮组的配置对象
 				buttonGroup: [{
@@ -66,6 +87,7 @@
 				]
 			};
 		},
+		
 		//options是指从其他页面跳转携带的数据
 		onLoad(options) {
 		  // 获取商品 Id
@@ -73,7 +95,9 @@
 		  // 调用请求商品详情数据的方法
 		  this.getGoodsDetail(goods_id)
 		},
+		
 		methods: {
+			 ...mapMutations('m_cart', ['addToCart']),
 		  // 定义请求商品详情数据的方法
 		  async getGoodsDetail(goods_id) {
 		    const { data: res } = await uni.$http.get('/api/public/v1/goods/detail', { goods_id })
@@ -81,9 +105,9 @@
 		    // 为 data 中的数据赋值
 			// 使用字符串的 replace() 方法，为 img 标签添加行内的 style 样式，从而解决图片底部空白间隙的问题
 			res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block;" ')
-
 		    this.goodsdetail = res.message
 		  },
+		  
 		  // 实现轮播图的预览效果
 		  preview(i) {
 		    // 调用 uni.previewImage() 方法预览图片
@@ -94,6 +118,7 @@
 		      urls: this.goodsdetail.pics.map(x => x.pics_big)
 		    })
 		  },
+		  
 		  // 左侧按钮的点击事件处理函数
 		  onClick(e) {
 		    if (e.content.text === '购物车') {
@@ -102,6 +127,26 @@
 		        url: '/pages/cart/cart'
 		      })
 		    }
+		  },
+		  // 右侧按钮的点击事件处理函数
+		  buttonClick(e) {
+			  
+		     // 1. 判断是否点击了 加入购物车 按钮
+		     if (e.content.text === '加入购物车') {
+		  
+		        // 2. 组织一个商品的信息对象
+		        const goods = {
+		           goods_id: this.goodsdetail.goods_id,       // 商品的Id
+		           goods_name: this.goodsdetail.goods_name,   // 商品的名称
+		           goods_price: this.goodsdetail.goods_price, // 商品的价格
+		           goods_count: 1,                           // 商品的数量
+		           goods_small_logo: this.goodsdetail.goods_small_logo, // 商品的图片
+		           goods_state: true                         // 商品的勾选状态
+		        }		  
+		        // 3. 通过 this 调用映射过来的 addToCart 方法，把商品信息对象存储到购物车中
+		        this.addToCart(goods)
+		  
+		     }
 		  }
 		}
 	}
