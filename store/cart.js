@@ -32,8 +32,36 @@ export default {
 	 // 将购物车中的数据持久化存储到本地
 	 saveToStorage(state) {
 	    uni.setStorageSync('cart', JSON.stringify(state.cart))
-	 }
+	 },
+	 
+	 //接受外来传递的参数goods,包含goodsid和goods新的state
+	 updatestate(state ,goods){
+		//根据提交的商品的Id，查询购物车中是否存在这件商品
+		const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
+		if(findResult){
+			findResult.goods_state=goods.goods_state
+			this.commit('m_cart/saveToStorage')	   
+		}
+	 },
+	 
+	updatcount(state ,goods){
+	 	//根据提交的商品的Id，查询购物车中是否存在这件商品
+	 	const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
+	 	if(findResult){
+	 		findResult.goods_count=goods.goods_count
+	 		this.commit('m_cart/saveToStorage')	   
+	 	}
+	  },
+	  // 根据 Id 从购物车中删除对应的商品信息
+	  removegoods(state, goods_id) {
+	  		// 调用数组的 filter 方法进行过滤
+	  		state.cart = state.cart.filter(x => x.goods_id !== goods_id)
+	  		// 持久化存储到本地
+	  		this.commit('m_cart/saveToStorage')
+	  },
    },
+   
+
 
   // 模块的 getters 属性
   getters: {

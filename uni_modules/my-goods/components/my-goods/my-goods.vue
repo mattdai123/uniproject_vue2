@@ -2,6 +2,7 @@
   <view class="goods-item">
     <!-- 商品左侧图片区域 -->
     <view class="goods-item-left">
+		<radio :checked="goods.goods_state" color="#c00000" v-if="showRadio" @click="changechecked"></radio>
       <image :src="goods.goods_small_logo || defaultPic" class="goods-pic"></image>
     </view>
     <!-- 商品右侧信息区域 -->
@@ -11,6 +12,8 @@
       <view class="goods-info-box">
         <!-- 商品价格 -->
         <view class="goods-price">￥{{goods.goods_price|tofix()}}</view>
+		<!--商品数量-->
+		 <uni-number-box :min="1" :value="goods.goods_count" v-if="showNum" @change="changenum"></uni-number-box>
       </view>
     </view>
   </view>
@@ -21,10 +24,22 @@
     // 定义 props 属性，用来接收外界传递到当前组件的数据
     props: {
       // 商品的信息对象
-      goods: {
-        type: Object,
-        defaul: {},
+		goods: {
+			type: Object,
+			defaul: {},
       },
+	    // 是否展示图片左侧的 radio
+		showRadio: {
+	        type: Boolean,
+	        // 如果外界没有指定 show-radio 属性的值，则默认不展示 radio 组件
+	        default: false,
+	      },
+		// 是否展示图片右侧的 数据框
+		showNum: {
+		    type: Boolean,
+		    // 如果外界没有指定 show-radio 属性的值，则默认不展示 radio 组件
+		    default: false,
+		  },
     },
     data() {
       return {
@@ -37,6 +52,26 @@
 		tofix(num){
 			return Number(num).toFixed(2)
 		}
+	},
+	methods:{
+		changechecked(){
+			
+			// 通过 this.$emit() 触发外界通过 @ 绑定的 radio-change 事件，
+			// 同时把商品的 Id 和 勾选状态 作为参数传递给 radio-change 事件处理函数
+			this.$emit('radiochange', {
+			    // 商品的 Id
+				goods_id: this.goods.goods_id,
+			    // 商品最新的勾选状态
+			    goods_state: !this.goods.goods_state
+			})
+			
+		},
+		changenum(val){
+			this.$emit('numchange',{
+				goods_id:this.goods.goods_id,
+				goods_count:+val	
+			})
+		}
 	}
   }
 </script>
@@ -44,12 +79,15 @@
 <style lang="scss">
   .goods-item {
     display: flex;
+	flex:1;
     padding: 10px 5px;
     border-bottom: 1px solid #f0f0f0;
 
     .goods-item-left {
       margin-right: 5px;
-
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
       .goods-pic {
         width: 100px;
         height: 100px;
@@ -60,6 +98,7 @@
 
     .goods-item-right {
       display: flex;
+	  flex:1;
       flex-direction: column;
       justify-content: space-between;
 
@@ -73,4 +112,9 @@
       }
     }
   }
+.goods-info-box{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 </style>

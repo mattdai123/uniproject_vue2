@@ -3,11 +3,15 @@
 /* 水平间距 */
 .goods-item {
   display: flex;
+  flex: 1;
   padding: 10px 5px;
   border-bottom: 1px solid #f0f0f0;
 }
 .goods-item .goods-item-left {
   margin-right: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .goods-item .goods-item-left .goods-pic {
   width: 100px;
@@ -17,6 +21,7 @@
 }
 .goods-item .goods-item-right {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -26,5 +31,10 @@
 .goods-item .goods-item-right .goods-price {
   font-size: 16px;
   color: #c00000;
+}
+.goods-info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 

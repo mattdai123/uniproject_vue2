@@ -54,7 +54,16 @@
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+		"requiredPrivateInfos": [
+		
+		        "chooseLocation",
+		
+		        "getLocation", 
+		
+		        "chooseAddress"
+		
+		         ]
     },
     "vueVersion" : "2"
 }
