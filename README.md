@@ -1,2 +1,1 @@
-# uniproject_vue2
- uniapp
+uniapp商城项目 因为域名安全过期原因，真机演示加载不了图片
