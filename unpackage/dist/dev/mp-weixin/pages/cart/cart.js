@@ -116,7 +116,7 @@ try {
       return __webpack_require__.e(/*! import() | uni_modules/my-goods/components/my-goods/my-goods */ "uni_modules/my-goods/components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/uni_modules/my-goods/components/my-goods/my-goods.vue */ 133))
     },
     mySettle: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/my-settle/components/my-settle/my-settle */ "uni_modules/my-settle/components/my-settle/my-settle").then(__webpack_require__.bind(null, /*! @/uni_modules/my-settle/components/my-settle/my-settle.vue */ 187))
+      return Promise.all(/*! import() | uni_modules/my-settle/components/my-settle/my-settle */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/my-settle/components/my-settle/my-settle")]).then(__webpack_require__.bind(null, /*! @/uni_modules/my-settle/components/my-settle/my-settle.vue */ 140))
     },
   }
 } catch (e) {

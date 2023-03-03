@@ -18,7 +18,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.30.2",
+  "libVersion": "",
   "appid": "wxd512b60c95b40440",
   "projectname": "uniproject_vue2",
   "condition": {
